@@ -1,8 +1,7 @@
 package Person;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class PersonHeavyServices {
@@ -11,9 +10,9 @@ public class PersonHeavyServices {
 	static Scanner sc = new Scanner (System.in);
 	static {
 		pdata = new PersonBasicMethods[10];
-		pdata[0] = new PersonBasicMethods("Shreyas","7777777",new Date(2002,2,12));
-		pdata[1]= new PersonBasicMethods("Shrey","36543477",new Date(2014,1,17));
-		pdata[2]= new PersonBasicMethods("Shreya","3654436587",new Date(1124,7,8));
+		pdata[0] = new PersonBasicMethods("Arnav", "7777987777",LocalDate.of(2002, 2, 12));
+		pdata[1]= new  PersonBasicMethods("Akshay","3546543477",LocalDate.of(2000, 4, 11));
+		pdata[2]= new  PersonBasicMethods("Yash",  "1244436587",LocalDate.of(2002, 3, 12));
 		cnt=3;
 	}
 
@@ -22,27 +21,45 @@ public class PersonHeavyServices {
 		String Name=sc.nextLine();
 		System.out.print("Enter Phone Number :");
 		String PhoneNum=sc.nextLine();
-		System.out.print("Enter Date of Birth(dd/mm/yyyy) :");
-		String dob=sc.nextLine();
-		SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");  //Changing the date format into simple date format
-		Date dt=null;
-		 dt=sdf.parse(dob);
-		 pdata[cnt]=new PersonBasicMethods(Name,PhoneNum,dt);
+		System.out.print("Enter Date of Birth(dd/MM/yyyy) :");
+		String dob=sc.next();
+		    // Parse the date
+	       LocalDate ld = LocalDate.parse(dob,DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+		 
+	       pdata[cnt]=new PersonBasicMethods(Name,PhoneNum,ld);
 			cnt++;
 	}
 
 	public static void deletePerson(int id) {
 		// TODO Auto-generated method stub
-		
+		for(int i=0;i<cnt;i++) {
+			if(pdata[i].getId()==id) {
+				for(int j = i;j<cnt;j++) {
+					pdata[j]=pdata[i+j];
+				}cnt--;
+				System.out.println("Deleted Person Successfully..");
+			}
+			else
+				System.out.println("Not Found in List..!");
+		}
 	}
 	
-	public static PersonBasicMethods[] displayAll() {
+	public static void displayAll() {
 		// TODO Auto-generated method stub
-		return null;
+		for (int i=0;i<cnt;i++) {
+	        if (pdata != null)
+	            System.out.println(pdata[i]);
+	        }
 	}
 
 	public static void searchById(int search) {
 		// TODO Auto-generated method stub
+		for(int i =0;i<pdata.length;i++) {
+			if(pdata[i]!=null) {
+				System.out.println(pdata[i]);
+			}else
+				System.out.println("Person Not Found.");
+		}
 		
 	}
 
