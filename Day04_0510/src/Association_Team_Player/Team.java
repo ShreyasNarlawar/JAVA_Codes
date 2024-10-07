@@ -6,13 +6,13 @@ public class Team {
 	private int tid;
 	private String tname;
 	private String coach;
-	private String captain;
+	private Player captain;
 	private Player[] plist;
 	
 	public Team(){
 		super();
 	}
-	public Team(int tid, String tname, String coach, String captain, Player[] plist) {
+	public Team(int tid, String tname, String coach, Player captain, Player[] plist) {
 	    super();
 	    this.tid = tid;
 	    this.tname = tname;
@@ -39,10 +39,10 @@ public class Team {
 	public void setcoach(String coach) {
 		this.coach = coach;
 	}
-	public String captain() {
+	public Player captain() {
 		return captain;
 	}
-	public void setCaptain(String captain) {
+	public void setCaptain(Player captain) {
 		this.captain =captain;
 	}
 	public Player[] plist() {

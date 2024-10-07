@@ -13,12 +13,12 @@ public class TeamServices {
 		Player plist1[] = new Player[13];
 		plist1[0] = new Player(1,"Rohit","Batsman");
 		plist1[1] = new Player(2,"Virat","Batsman");
-		 tarr[0] = new Team(12, "CSK", "Jadeja", "Shami", plist1);
+		 tarr[0] = new Team(34, "CSK", "Jadeja", new Player(7,"Shami","bowler"),plist1);
 		 
 		Player[] plist2=new Player[15];
 		plist2[0]=new Player(11,"Hardik Pandya","Allrounder");
 		plist2[1]=new Player(12,"Virat Kohali","Batsman");
-        tarr[1] = new Team(11, "MI", "Sachin", "Hardik Pandya", plist2);
+        tarr[1] = new Team(54, "MI", "Sachin",new Player(5,"gambhir","batsman"), plist2);
 
 		cnt=2;
 		
@@ -42,6 +42,7 @@ public class TeamServices {
 		String Capname = sc.nextLine();
 		System.out.println("Enter Captain Spaciality:");
 		String capSpe=sc.nextLine();
+		Player p = new Player(cid,Capname,capSpe);
 		Player []plist = new Player[13];
 		int cnt =0;
 		String ans ="y";
@@ -56,8 +57,10 @@ public class TeamServices {
 			plist[cnt] = new Player(Pid,Pname,Pspe);
 			cnt++;
 			System.out.println("Do You Wannaa to continueee..????(y/n)");
+			ans = sc.next();
 		}while(ans.equals("y"));
-		tarr[cnt]= new Team(Tid,Tname,Coaname,cid,Capname,capSpe,[]plist);
+		tarr[cnt]= new Team(Tid,Tname,Coaname,p,plist);
+		cnt++;
 	}
 
 	public static void deleteTeam() {
@@ -67,6 +70,10 @@ public class TeamServices {
 
 	public static void searchByTeamId() {
 		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		int id = sc.nextInt();
+		
+		if(id )
 		
 	}
 
@@ -83,10 +90,22 @@ public class TeamServices {
 	public static void AddNewPlayer() {
 		// TODO Auto-generated method stub
 		
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter Player Id :");
+		int Pid = sc.nextInt();
+		sc.nextLine();
+		System.out.println("Enter Player Name :");
+		String Pname = sc.nextLine();
+		System.out.println("Enter Speciality :");
+		String Pspe=sc.nextLine();
+
+		
 	}
 
 	public static void displayAll() {
 		// TODO Auto-generated method stub
+	
 		
 	}
 
