@@ -17,8 +17,8 @@ public interface Interface1 {
 	default int permutations(int n, int r ) {
 		System.out.println("The permutations are");
 		
-		int y =factorial(n)/factorial(n-r);
-		return y;
+		int x =factorial(n)/factorial(n-r);
+		return x;
 	}
 	
 	default int combination(int n, int r) {

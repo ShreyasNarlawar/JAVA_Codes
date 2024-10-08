@@ -11,10 +11,10 @@ public class TestInterface {
 		
 		MyClass s = new MyClass();
 		
-		System.out.println(s.combination(532,23));
+		System.out.println(s.combination(2,3));
 		
 		Interface1 i1 = new MyClass();
-		System.out.println(i1.combination(42,25));
+		System.out.println(i1.combination(4,2));
 		
 		Interface2 i2 = new MyClass();
 	    i2.m3();
