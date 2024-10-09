@@ -2,7 +2,7 @@ package com.demo.beans;
 
 import java.time.LocalDate;
 
-public class GraduateStudent extends Student{
+public class GraduateStudent extends Student {
 	
 	private int spsub;
 
@@ -11,8 +11,8 @@ public class GraduateStudent extends Student{
 		// TODO Auto-generated constructor stub
 	}
 
-	public GraduateStudent(int pid, String pname, String address, LocalDate dob, int[] marks,int spsub) {
-		super(pid,pname, address, dob,  marks);
+	public GraduateStudent(int pid, String pname, String addr, LocalDate dob, int []marks,int spsub) {
+		super( pid,  pname,  addr, dob, marks);
 		this.spsub = spsub;
 	}
 
@@ -28,6 +28,9 @@ public class GraduateStudent extends Student{
 	public String toString() {
 		return super.toString()+"GraduateStudent [spsub=" + spsub + "]";
 	}
+	
+	
+
 	
 	
 
