@@ -35,7 +35,7 @@ public class TestInheritanceArray {
 			}
 			break;
 		case 5:
-			 sarr=PersonService.displayAll();
+			sarr=PersonService.displayAll();
 			for(Student s1:sarr) {
 				if(s1 instanceof MasterStudent) {
 					System.out.println(s1);

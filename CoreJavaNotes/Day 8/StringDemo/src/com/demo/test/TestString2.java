@@ -1,6 +1,5 @@
 package com.demo.test;
 
-
 public class TestString2 {
 
 	public static void main(String[] args) {

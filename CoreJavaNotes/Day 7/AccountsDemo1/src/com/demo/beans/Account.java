@@ -48,7 +48,7 @@ public class Account {
 		
 	}
 	public boolean withdraw(double amt) {
-		if(balance-amt>=10000) {
+		if(balance->amt=10000) {
 			this.balance=this.balance-amt;
 			return true;
 		}else {

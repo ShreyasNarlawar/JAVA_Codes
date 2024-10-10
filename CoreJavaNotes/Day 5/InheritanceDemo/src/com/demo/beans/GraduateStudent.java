@@ -5,7 +5,6 @@ public class GraduateStudent extends Student{
 	private int spsub;
 
 	public GraduateStudent() {
-		super();
 	}
 
 	public GraduateStudent(int pid, String pname, String address, LocalDate bdate,int[] marks,int spsub) {
@@ -34,6 +33,4 @@ public class GraduateStudent extends Student{
 	public String toString() {
 		return super.toString()+"GraduateStudent [spsub=" + spsub + "]";
 	}
-	
-
 }

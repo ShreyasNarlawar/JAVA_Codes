@@ -12,7 +12,7 @@ public class TestArray {
 		//int[][] arr3=new int[][5]; //error
 		//arr.length --->number of rows
 		//accept data int the dynamic array
-		for(int i=0;i<arr.length;i++) {
+			for(int i=0;i<arr.length;i++) {
 			System.out.println("enter number of columns in row : "+i);
 			int c=sc.nextInt();
 			//allocate memory for columns of row i

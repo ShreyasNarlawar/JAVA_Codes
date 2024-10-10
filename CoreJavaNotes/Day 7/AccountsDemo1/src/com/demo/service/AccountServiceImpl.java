@@ -13,6 +13,7 @@ public class AccountServiceImpl implements AccountService{
     	acarr[1]=new Account(2,"Atharva",345688,2222);
     	cnt=2;
     }
+    
 	@Override
 	public void addnewAccount() {
 		Scanner sc=new Scanner(System.in);
@@ -32,6 +33,8 @@ public class AccountServiceImpl implements AccountService{
 	public Account[] findAll() {
 		return acarr;
 	}
+	
+	// To find account by Id
 	private int findAccountById(int id,int pin) {
 		for(int i=0;i<acarr.length;i++) {
 			if(acarr[i].getAccid()==id) {
@@ -45,6 +48,7 @@ public class AccountServiceImpl implements AccountService{
 		}
 		return -1;
 	}
+//	To find the balance
 	@Override
 	public double findBalance(int id, int pin) {
 		int pos=findAccountById(id,pin);
@@ -53,6 +57,7 @@ public class AccountServiceImpl implements AccountService{
 		}
 		return pos;
 	}
+//	To deposit amount
 	@Override
 	public int depositAmount(int id, int pin, double amt) {
 		int pos=findAccountById(id, pin);
@@ -62,6 +67,7 @@ public class AccountServiceImpl implements AccountService{
 		}
 		return pos;
 	}
+//	To withdraw amount
 	@Override
 	public int withdrawAmount(int id, int pin, double amt) {
 		int pos=findAccountById(id, pin);
@@ -76,6 +82,8 @@ public class AccountServiceImpl implements AccountService{
 		}
 		return pos;
 	}
+	
+	// To delete account
 	@Override
 	public int deleteById(int id, int pin) {
 		int pos=findAccountById(id, pin);
