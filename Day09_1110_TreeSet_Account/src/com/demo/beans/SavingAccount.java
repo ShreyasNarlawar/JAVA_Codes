@@ -12,7 +12,7 @@ public class SavingAccount extends Accounts{
 		SavingAccount(){
 			super("s");
 		}
-		SavingAccount(String aname,int pin,String Que,String Ans,double balance,int chequBknum){
+		public SavingAccount(String aname,int pin,String Que,String Ans,double balance,int chequBknum){
 			super("s",aname,pin,Que,Ans,balance);
 			this.chequBknum=chequBknum;
 		}

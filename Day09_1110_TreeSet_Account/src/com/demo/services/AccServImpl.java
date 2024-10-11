@@ -36,17 +36,28 @@ public class AccServImpl implements AccServ {
 				Accounts acc=new CurrentAccount(nm,pin,sQue,sAns,amt,tlimit);
 				return accdao.saveaccount(acc);
 			}
+			return false;
+	}
+	public Set<Accounts>getAll(){
+		return accdao.findAll();
 	}
 	@Override
 	public int withdrawAmount(String acid, int pin, double amt) {
 		// TODO Auto-generated method stub
-		return 0;
+		Accounts acc = accdao.findById(acid,pin);
+		if(acc != null)
+			return acc.withDraw(amt);
+		else
+			return 3;
 	}
-
 	@Override
 	public boolean depositAmount(String acid, int pin, double amt) {
-		// TODO Auto-generated method stub
-		return false;
+		Accounts acc = accdao.findById(acid,pin);
+		if(acc != null) {
+			acc.deposit(amt);
+			return true;
+		}else
+			return false;
 	}
 
 }

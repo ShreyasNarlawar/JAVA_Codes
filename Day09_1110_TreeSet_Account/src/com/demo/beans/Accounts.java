@@ -15,11 +15,15 @@ abstract public class Accounts implements Comparable<Accounts>{
 		return aname.hashCode()+pin;
 	}
 	public boolean equals(Object obj) {
-		Accounts ac = Accounts(obj);
+		Accounts ac = Accounts();
 		System.out.println("In Account Equals :"+aname+"---->"+pin+"---->"+ac.aname+"---->"+ac.pin);
 		return this.aname.equals(ac.aname)&&this.pin==ac.pin;
 	}
 	
+	private Accounts Accounts() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	public Accounts(String type) {
 		super();
 		this.accId=generatedId(type,null);
@@ -43,6 +47,13 @@ abstract public class Accounts implements Comparable<Accounts>{
 		Que = que;
 		this.ans = ans;
 		this.balance = balance;
+	}
+	
+	public String getAccId() {
+		return accId;
+	}
+	public void setAccId(String accId) {
+		this.accId = accId;
 	}
 	public String getAname() {
 		return aname;
