@@ -1,12 +1,15 @@
 package com.demo.services;
 
 import java.util.Scanner;
+import java.util.Set;
 
+import com.demo.beans.Accounts;
 import com.demo.beans.CurrentAccount;
+import com.demo.beans.SavingAccount;
 import com.demo.dao.AccountDao;
 import com.demo.dao.AccountDaoImpl;
 
-public class AccServImpl implements AccServ {
+public  class AccServImpl implements AccServ {
 	Scanner sc= new Scanner(System.in);
 	private AccountDao accdao;
 	public AccServImpl() {
@@ -60,4 +63,56 @@ public class AccServImpl implements AccServ {
 			return false;
 	}
 
+	@Override
+	public boolean transferfunds(String acid, int pin, String RaccId, double amt) {
+		Accounts acc = accdao.findById(acid, pin);
+		Accounts dacc = accdao.getById(RaccId);
+		if(acc != null) {
+			dacc.deposit(amt);
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public boolean changePinByOldpin(String accId, int pin,int npin) {
+		Accounts acc = accdao.findById(accId, pin);
+		if(acc != null) {
+			acc.setPin(npin);
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public boolean changePinByQnA(String accId) {
+		Accounts acc = accdao.getById(accId);
+		if(acc != null) {
+			System.out.println(acc.getQue());
+			String anss = sc.next();
+			if(acc.getAns().equals(anss)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	@Override
+	public void checkBalance(String accId) {
+		Accounts acc = accdao.getById(accId);
+		if(acc != null) {
+			System.out.println("Account Balance is :"+acc.getBalance());
+		}else
+			System.err.println("Invalid Credentials..");
+	}
+
+	@Override
+	public boolean closeAccount(String accId,int pin) {
+		// TODO Auto-generated method stub
+		
+		if(accdao.removeAccount(accId,pin)) {
+			return true;
+		}
+		return false;
+	}
 }

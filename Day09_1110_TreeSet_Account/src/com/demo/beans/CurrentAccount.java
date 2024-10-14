@@ -30,6 +30,14 @@ public class CurrentAccount extends Accounts {
 		this.min_trans = min_trans;
 	}
 
+	public static float getInt_rate() {
+		return int_rate;
+	}
+
+	public static void setInt_rate(float int_rate) {
+		CurrentAccount.int_rate = int_rate;
+	}
+
 	@Override
 	public int compareTo(Accounts o) {
 		// TODO Auto-generated method stub
@@ -39,6 +47,16 @@ public class CurrentAccount extends Accounts {
 	@Override
 	public String toString() {
 		return super.toString()+"CurrentAccount [min_trans=" + min_trans + "]";
+	}
+
+	@Override
+	public int withDraw(double amt) {
+		// TODO Auto-generated method stub
+		if(balance-amt>=min_bal) {
+			balance-=amt;
+			return 1;
+		}
+		return 2;
 	}
 
 }

@@ -2,7 +2,11 @@ package com.demo.beans;
 
 abstract public class Accounts implements Comparable<Accounts>{
 	
-	static int cnt=1;
+	static int cnt;
+	
+	static {
+		cnt = 1;
+	}
 	private String accId;
 	private String aname;
 	private int pin;
@@ -15,15 +19,11 @@ abstract public class Accounts implements Comparable<Accounts>{
 		return aname.hashCode()+pin;
 	}
 	public boolean equals(Object obj) {
-		Accounts ac = Accounts();
+		Accounts ac = (Accounts) obj;
 		System.out.println("In Account Equals :"+aname+"---->"+pin+"---->"+ac.aname+"---->"+ac.pin);
 		return this.aname.equals(ac.aname)&&this.pin==ac.pin;
 	}
 	
-	private Accounts Accounts() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	public Accounts(String type) {
 		super();
 		this.accId=generatedId(type,null);
@@ -44,11 +44,18 @@ abstract public class Accounts implements Comparable<Accounts>{
 		this.accId = generatedId(type,aname);
 		this.aname = aname;
 		this.pin = pin;
-		Que = que;
+		this.Que = que;
 		this.ans = ans;
 		this.balance = balance;
 	}
 	
+	
+	public static int getcnt() {
+		return cnt;
+	}
+	public static void setcnt(int cnt) {
+		Accounts.cnt = cnt;
+	}
 	public String getAccId() {
 		return accId;
 	}
@@ -71,7 +78,7 @@ abstract public class Accounts implements Comparable<Accounts>{
 		return Que;
 	}
 	public void setQue(String que) {
-		Que = que;
+		this.Que = que;
 	}
 	public String getAns() {
 		return ans;
@@ -89,6 +96,11 @@ abstract public class Accounts implements Comparable<Accounts>{
 	public String toString() {
 		return "Accounts [accId=" + accId + ", aname=" + aname + ", pin=" + pin + ", Que=" + Que + ", ans=" + ans
 				+ ", balance=" + balance + "]";
+	}
+	abstract public int withDraw(double amt);
+	public void deposit(double amt) {balance+=amt;}
+	public int compareTo(Accounts ob) {System.out.println("InCompareTo Account : "+this.accId+"---->"+ob.accId);
+	return this.accId.compareTo(ob.accId);
 	}
 	
 }

@@ -34,15 +34,21 @@ public class SavingAccount extends Accounts{
 		public void setChequBknum(int chequBknum) {
 			this.chequBknum = chequBknum;
 		}
+		public static float getInt_rate() {
+			return int_rate;
+		}
+		public static void setInt_rate(float int_rate) {
+			SavingAccount.int_rate = int_rate;
+		}
 		@Override
 		public String toString() {
 			return super.toString()+"SavingAccount [min_trans=" + min_trans + ", chequBknum=" + chequBknum + "]";
-		}
+		}		
 		@Override
-		public int compareTo(Accounts o) {
+		public int withDraw(double amt) {
 			// TODO Auto-generated method stub
-			return 0;
+			if(balance-amt >= min_bal) {
+				return 1;
+			}return 2;
 		}
-		
-
 }

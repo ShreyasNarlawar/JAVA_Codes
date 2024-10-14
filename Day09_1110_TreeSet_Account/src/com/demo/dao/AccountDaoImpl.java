@@ -18,7 +18,7 @@ public class AccountDaoImpl implements AccountDao{
 		accset.add(new SavingAccount("shreyas",1745,"Fav Animal?","Dog",224561,7474));
 		accset.add(new CurrentAccount("shyaam",7445,"Fav Food?","Vadapaav",745471,104));
 		accset.add(new SavingAccount("sanaa",3547,"Fav Color?","Pink",2989745,32));
-		Accounts.cnt(4);
+		Accounts.setcnt(4);
 		}
 	public Set<Accounts> findAll() {
 		// TODO Auto-generated method stub
@@ -69,6 +69,4 @@ public class AccountDaoImpl implements AccountDao{
 			lst.sort(c);
 			return lst;
 		}
-
-
 }
