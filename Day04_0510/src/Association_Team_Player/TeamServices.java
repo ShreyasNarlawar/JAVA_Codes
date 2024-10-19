@@ -63,50 +63,109 @@ public class TeamServices {
 		cnt++;
 	}
 
-	public static void deleteTeam() {
-		// TODO Auto-generated method stub
+	public static boolean deleteTeam(int id) {
+		
+		for(int i =0; i< cnt; i++) {
+			
+			if(tarr[i].getid()== id) {
+				
+				for(int j =i; j < cnt; j++) {
+					
+					tarr[j] = tarr[j+1];
+				}
+				cnt --;
+				return true;
+			}
+		}
+		return false;
 		
 	}
 
-	public static void searchByTeamId() {
-		// TODO Auto-generated method stub
+	public static Team searchByTeamId(int num) {
+		for(Team t : tarr) {
+			if( t!= null) {
+				if(t.getid() == num) {
+					return t;
+				}
+			}else 
+				break;
+		}
+		return null;
+		
+	}
+
+	public static Team searchByPlayerId(int pid) {
+		for(Team t : tarr) {
+			if( t != null) {
+				
+				Player[]plist = t.plist();
+				for(Player p :plist) {
+					if(p != null) {
+						if(p.getPid() == pid) {
+							return t;
+						}
+					}else 
+						break;
+				}
+			}else
+				break;
+		}
+		return null;
+	}
+
+//	public static boolean deletePlayer(int pid) {
+//		
+//		Player[] plist = new Player();
+//         for(int i =0; i< cnt; i++) {
+//			
+//			if(plist[i].getPid()== pid) {
+//				
+//				for(int j =i; j < cnt; j++) {
+//					
+//					plist[j] = plist[j+1];
+//				}
+//				cnt --;
+//				return true;
+//			}
+//		}
+//		return false;
+//		
+//	}
+
+	public static boolean AddNewPlayer(int tid) {
+		
+		Team t = searchByTeamId(tid);
 		Scanner sc = new Scanner(System.in);
-		int id = sc.nextInt();
 		
-		if(id )
-		
-	}
-
-	public static void searchByPlayerId() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public static void deletePlayer() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public static void AddNewPlayer() {
-		// TODO Auto-generated method stub
-		
-		
-		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter Player Id :");
 		int Pid = sc.nextInt();
 		sc.nextLine();
+		
 		System.out.println("Enter Player Name :");
 		String Pname = sc.nextLine();
+		
 		System.out.println("Enter Speciality :");
 		String Pspe=sc.nextLine();
-
 		
+		Player p = new Player(Pid, Pname, Pspe);
+		Player[] plist = t.plist();
+		
+		for(int i = 0; i < plist.length; i++) {
+			if(plist[i] == null) {
+				plist[i] = p;
+		      return true;
+			}else {
+				return false;
+			}
+		}
+		return false;
 	}
 
-	public static void displayAll() {
-		// TODO Auto-generated method stub
+	public static Team[] displayAll() {
+		return tarr;
+		
+	}
 	
-		
-	}
+	
 
 }

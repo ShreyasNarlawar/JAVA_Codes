@@ -40,7 +40,9 @@ public class StudentMain {
 			case 3->{
 				System.out.println("Enter Id for update Marks :");
 				int sid = sc.nextInt();
-				pserv.updMarks(sid);
+				System.out.println("Enter new Marks");
+				int mks = sc.nextInt();
+				pserv.updMarks(sid, mks);
 			}
 			case 4->{
 				System.out.println("Enter Id for Search :");
@@ -52,12 +54,12 @@ public class StudentMain {
 				String sname = sc.nextLine();
 				pserv.searByName(sname);
 			}
-			case 6->{
-				pserv.SortById();
-			}
-			case 7->{
-				pserv.SortByName();
-			}
+//			case 6->{
+//				pserv.sortById();
+//			}
+//			case 7->{
+//				pserv.sortByName();
+//			}
 			case 8->{
 				pserv.sortByMarks();
 			}

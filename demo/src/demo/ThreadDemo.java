@@ -1,4 +1,4 @@
-package com.demo.beans;
+package demo;
 
 public class ThreadDemo extends Thread{
 	public void run() {

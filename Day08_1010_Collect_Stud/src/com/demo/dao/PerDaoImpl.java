@@ -19,9 +19,9 @@ public class PerDaoImpl implements  PersonDao{
 	}
 
 	@Override
-	public Student delStudent(byte dlt) {
+	public boolean delStudent(byte dlt) {
 		// TODO Auto-generated method stub
-		return null;
+		return false ;
 	}
 
 	@Override
@@ -65,6 +65,12 @@ public class PerDaoImpl implements  PersonDao{
 	public List<Student> sortByMarks() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void displayAll() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

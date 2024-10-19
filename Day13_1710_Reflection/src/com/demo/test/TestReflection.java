@@ -36,7 +36,7 @@ public class TestReflection {
 			mm.invoke(c,12);
 		} catch (IllegalAccessException | InvocationTargetException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 		Field[] fld = cls.getDeclaredFields();
 		
@@ -53,15 +53,17 @@ public class TestReflection {
 			f.setAccessible(true);
 			try {
 				f.set(c, "ram");
+				
 			} catch (IllegalArgumentException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				System.out.println(e.getMessage());
 			} catch (IllegalAccessException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				System.out.println(e.getMessage());
 			}
 			System.out.println("After changing the name");
 			System.out.println(c);
+			
 			
 		} catch (NoSuchFieldException | SecurityException e) {
 			// TODO Auto-generated catch block

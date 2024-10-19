@@ -9,7 +9,7 @@ public interface PersonDao {
 	
 	List<Student> getAllStudents();
 
-	Student delStudent(byte dlt);
+	boolean delStudent(byte dlt);
 
 	boolean updMarks(int sid,int newmarks) ;
 

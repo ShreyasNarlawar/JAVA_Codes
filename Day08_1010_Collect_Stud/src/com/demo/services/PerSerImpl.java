@@ -22,7 +22,7 @@ public class PerSerImpl implements PersonServ{
 	}
 
 	@Override
-	public Student delStudent(byte dlt) {
+	public boolean delStudent(byte dlt) {
 		// TODO Auto-generated method stub
 		return pdao.delStudent(dlt);
 	}
@@ -73,5 +73,17 @@ public class PerSerImpl implements PersonServ{
 	public List<Student> getAllStudents() {
 		// TODO Auto-generated method stub
 		return pdao.getAllStudents();
+	}
+
+	@Override
+	public void displayAll() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void addStudent(byte chh) {
+		// TODO Auto-generated method stub
+		
 	}
 }

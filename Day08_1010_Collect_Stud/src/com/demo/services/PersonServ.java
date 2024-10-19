@@ -5,11 +5,11 @@ import com.demo.beans.Student;
 
 public interface PersonServ {
 
-void addStudent(Student s);
+void addStudent(byte chh);
 	
 	List<Student> getAllStudents();
 
-	Student delStudent(byte dlt);
+	boolean delStudent(byte dlt);
 
 	boolean updMarks(int sid,int newmarks) ;
 
@@ -26,4 +26,7 @@ void addStudent(Student s);
 	List<Student> sortByName();
 
 	List<Student> sortByMarks();
+
+	void addStudent(Student s);
+
 }
