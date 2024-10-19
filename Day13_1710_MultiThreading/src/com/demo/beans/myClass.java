@@ -4,11 +4,11 @@ public class myClass {
 	
 	public void printTable(int n) {
 		
-		for(int i = 0; i < 11; i++) {
+		for(int i = 1; i < 11; i++) {
 		System.out.println(n + "*"+ i +"----->"+n*i);
 		
 			try {
-				Thread.sleep(2000);
+				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -18,10 +18,10 @@ public class myClass {
 	
 	public int factorial(int n) {
 		int f = 1;
-		for(int i = 0; i< n; i++) {
+		for(int i = 1; i<= n; i++) {
 			f = f *i;
 			try {
-				Thread.sleep(3000);
+				Thread.sleep(100);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
