@@ -15,7 +15,7 @@ public class Numbers03_Prime {
 
 	public static boolean isPrime(int n) {
 		for(int a =1;a<=n;a++) {
-			
+			return true;
 		}
 		return false;
 		
