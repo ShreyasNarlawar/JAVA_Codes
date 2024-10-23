@@ -1,4 +1,4 @@
-package Ques01;
+package Question01.Ques01;
 
 public class Question01 {
 	public static void main(String[] args) {
